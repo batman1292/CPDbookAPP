@@ -1,0 +1,38 @@
+extends header
+- var col = 0
+block content
+  ul
+  - each item, i in data
+      div.rows
+        div.col-xs-4
+          div.card(style="margin-bottom = 10px;")
+            div.content
+              center
+                div.rows
+                  div.col-xs-12
+                    h3= item.Title
+                div.rows
+                  div.col-xs-12
+                    img.img-responsive(src="http://localhost:8080/images/"+item.Image height="400" width="200")
+
+                div.rows
+                  div.col-xs-6
+                    h4 ISBN
+                  div.col-xs-5
+                    h4= item.ISBN
+                div.rows
+                  div.col-xs-6
+                    h4 ผู้แต่ง
+                  div.col-xs-5
+                    h4= item.Name+" "+item.Surname
+                div.rows
+                  div.col-xs-6
+                    h4 จำนวนหน้า
+                  div.col-xs-5
+                    h4= item.Pages
+                div.rows
+                  div.col-xs-12
+                    a.btn.btn-simple.btn-info(href="http://localhost:8080/bookdetail/"+item.BookID) ดูรายละเอียด
+                div.rows
+                  div.col-xs-12
+                    &nbsp;
