@@ -33,7 +33,7 @@ app.use(
     connection(mysql,{
         host: 'localhost',
         user: 'root',
-        password : '',
+        password : '1234',
         port : 3306, //port mysql
         database:'cpd_book_db',
         multipleStatements: true
