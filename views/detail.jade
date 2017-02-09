@@ -1,7 +1,7 @@
 extends header
 - var col = 0
 block content
-  - each item, i in data
+  - each item in data
       div.rows
         div.col-xs-3
           div.card(style="margin-bottom = 10px;")
@@ -9,33 +9,12 @@ block content
               center
                 div.rows
                   div.col-xs-12
-                    img.img-responsive(src="http://localhost:8080/images/"+item.Image height="400" width="200")
-
-                div.rows
-                  div.col-xs-6
-                    h4 ISBN
-                  div.col-xs-5
-                    h4= item.ISBN
+                    img.img-responsive(src="//localhost:8080/images/book/"+item.IMAGE+".jpg" height="400" width="200")
                 div.rows
                   div.col-xs-6
                     h4 ผู้แต่ง
                   div.col-xs-5
                     h4= item.Name+" "+item.Surname
-                div.rows
-                  div.col-xs-6
-                    h4 จำนวนหน้า
-                  div.col-xs-5
-                    h4= item.Pages
-                div.rows
-                  div.col-xs-5
-                    h4 สำนักพิมพ์
-                  div.col-xs-7
-                    h4= item.PubName
-                div.rows
-                  div.col-xs-3
-                    h4 ที่อยู่
-                  div.col-xs-9
-                    h4= item.Address+" "+item.City+" "+item.Zipcode
                 div.rows
                   div.col-xs-12
                     a.btn.btn-simple.btn-danger(href="http://localhost:8080/") ย้อนกลับ
@@ -43,11 +22,11 @@ block content
                   div.col-xs-12
                     &nbsp;
       div.col-xs-9
-        h2= item.Title
-        - each chapter in bookChapter
+        h2= item.TITLE
+        - each chapter in bookChapter.row2
             div.rows
               div.card.card-nav-tabs.card-plain
-                div.header.header-info
-                  h3 บทที่ #{chapter.SubjectID+" "+chapter.Str}
+                div.header.header-info(style="padding-left: 10px")
+                  h3 หัวข้อ #{chapter.NAME}
                 div.content
-                  p= chapter.Data
+                  p= chapter.DETAIL

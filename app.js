@@ -8,10 +8,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-// var images = require()
-// var admin = require('./routes/admin');
+var models = require('./routes/models');
 var connection  = require('express-myconnection');
-var mysql = require('mysql');
 var app = express();
 
 // view engine setup
@@ -28,17 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'))
 // app.use('/', routes);
 // app.use('/users', users);
-
-app.use(
-    connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : '1234',
-        port : 3306, //port mysql
-        database:'cpd_book_db',
-        multipleStatements: true
-    },'request')
-);//route index, hello world
 
 /// catch 404 and forwarding to error handler
 // app.use(function(req, res, next) {
@@ -76,7 +63,8 @@ app.listen(8080, function() {
 });
 
 app.get('/', routes.index);
-app.get('/bookdetail/:BookID', routes.bookdetail)
+app.get('/bookdetail/:BookID', routes.bookdetail);
+// app.post('/book', models);
 // app.get('/administrator', admin.index);
 
 // module.exports   = app;
